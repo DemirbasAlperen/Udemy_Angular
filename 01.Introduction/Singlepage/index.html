@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog | Alperen Demirbaş</title>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <!-- aşağıdaki js kodlarına erişim için burada onclick ile sayfalar arası geçiş eklemiş olduk -->
+            <li>
+                <a onclick="gotoHomePage()">Home</a>
+            </li>
+            <li>
+                <a onclick="gotoAboutPage()">About</a>
+            </li>
+            <li>
+                <a onclick="gotoContactPage()">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <app-root></app-root>
+    <!-- istersek rastgele elementler oluşturabiliriz. -->
+
+    <!-- home sayfasına tıklandığında ne yapılması gerektiğine script elementi içerisinde yazabiliyoruz. -->
+    <script>
+        gotoHomePage();   // uygulama açıldığında çalışacak
+
+        function gotoHomePage(){
+            const el = document.querySelector("app-root");      // elementimi elde ettim
+            if(el){  // eğer elementim varsa element içine bir html ekledim
+                fetch("./home.html").then(res=> res.text()).then(data => {    // artık home sayfam ayrı bir html olmuş oldu
+                    el.innerHTML = data
+                })
+            }
+        }
+
+        function gotoAboutPage(){
+            const el = document.querySelector("app-root");      
+            if(el){  
+                el.innerHTML = `  
+                <h1>About Page</h1>
+                `
+            }
+        }
+
+        function gotoContactPage(){
+            const el = document.querySelector("app-root");      
+            if(el){  
+                el.innerHTML = `  
+                <h1>Contact Page</h1>
+                `
+            }
+        }
+    </script>
+</body>
+</html>

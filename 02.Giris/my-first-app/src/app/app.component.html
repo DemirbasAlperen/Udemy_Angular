@@ -1,0 +1,25 @@
+<h1>App Component. {{ helloWorld }}</h1>
+<!-- aşağıda button tanımladık ve içine bir event atayacağımız zaman event parantezini () kullanırız. -->
+<button (click)="clickMe()">Beni Tıkla</button>
+<!-- <p [class]="pClassName" class="{{pClassName}}">Lorem ipsum dolor sit amet.</p> -->
+<!-- [class]="pClassName"  ->  class="{{pClassName}}"  ->  property binding ya [] parantez ya da {{}} parantez kullanılır.  -->
+<!-- aşağıda string değer döndüren fonksiyonu propert binding olarak tanımladık -->
+<p [class]="setPElementClass()">Lorem ipsum dolor sit amet.</p>
+<!-- <input type="text" (keyup)="changeHelloWorldVariable($event)"> -->
+<!-- (keyup)="changeHelloWorldVariable($event)"  -> event binding; eventleri sarmalamak için kullanılır -->
+
+<!-- Two Data Binding; [(ngModel)] -> bu parantez yapısı şart -> input ile helloWorld değişkenini birbirine bağladık. Bu işlem sadece input da değil select ve textarea da da çalışır -->
+<input type="text" [(ngModel)]="helloWorld">
+<br><br>
+<textarea [(ngModel)]="helloWorld"></textarea>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus quam expedita ipsum minus at quasi quis
+quod ullam adipisci doloremque repellat, vero voluptatem reiciendis a autem eos error? Molestias.</p>
+
+<!-- aşağıya home componentimin element ismini ekledim bu sayede home sayfamızın sayfa içeriği bu sayfaya eklenmiş oldu. Bunu diğer componentler için de yapıyoruz. -->
+<app-home></app-home>
+<app-about></app-about>
+<app-contact></app-contact>
+
+<!-- angular genel hata verdiği için aşağıdaki etiketi yazdık -->
+<router-outlet></router-outlet>
