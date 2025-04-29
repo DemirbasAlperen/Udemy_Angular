@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RenklendirDirective } from './renklendir.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [RouterOutlet, RenklendirDirective],
+  template: `
+  <h1 renklendir="green" test="taner">Directive</h1>
+  <router-outlet></router-outlet>
+  `
 })
 export class AppComponent {
-  title = '06.Directive';
+  
 }
